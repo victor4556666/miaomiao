@@ -22,7 +22,7 @@
             </router-link>
             <router-link to="/movie/search" custom v-slot="{ navigate, isActive }">
                 <li @click="navigate" :class="isActive ? 'red' : ''">
-                    <span><van-icon name="search" size=20 /></span>
+                    <span><van-icon name="search" /></span>
                 </li>
             </router-link>
         </ul>
@@ -62,6 +62,7 @@ div {
     ul {
         display: flex;
         height: 2.625rem;
+
 
         li {
             flex: 1;

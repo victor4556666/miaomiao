@@ -4,7 +4,10 @@ import router from './router'
 import store from './store'
 
 Vue.config.productionTip = false
-
+Vue.filter('actorsList', (actors) => {
+  var actors = actors.map(item => item.name).join(',')
+  return actors
+})
 new Vue({
   router,
   store,

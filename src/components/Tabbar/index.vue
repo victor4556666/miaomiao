@@ -38,6 +38,7 @@ footer {
     width: 100%;
     background: white;
     border-top: 1px solid gray;
+    z-index: 100;
 
     ul {
         display: flex;
