@@ -6,7 +6,7 @@ Vue.use(Toast);
 
 const http = axios.create({
     baseURL: 'https://m.maizuo.com',
-    timeout: 1000,
+    timeout: 3000,
     headers: {
         'X-Client-Info': ' {"a":"3000","ch":"1002","v":"5.2.1","e":"170901071910363756085249","bc":"110100"}'
     }

@@ -8,9 +8,15 @@ importers:
 
   .:
     dependencies:
+      '@better-scroll/core':
+        specifier: ^2.5.1
+        version: 2.5.1
       axios:
         specifier: ^1.7.3
         version: 1.7.3
+      better-scroll:
+        specifier: ^2.0.0
+        version: 2.0.0
       core-js:
         specifier: ^3.8.3
         version: 3.37.1
@@ -26,6 +32,9 @@ importers:
       vuex:
         specifier: ^3.6.2
         version: 3.6.2(vue@2.7.16)
+      vuex-persistedstate:
+        specifier: ^4.1.0
+        version: 4.1.0(vuex@3.6.2(vue@2.7.16))
     devDependencies:
       '@vue/cli-plugin-babel':
         specifier: ~5.0.0
@@ -669,6 +678,36 @@ packages:
     resolution: {integrity: sha512-YTnYtra7W9e6/oAZEHj0bJehPRUlLH9/fbpT5LfB0NhQXyALCRkRs3zH9v07IYhkgpqX6Z78FnuccZr/l4Fs4Q==}
     engines: {node: '>=6.9.0'}
 
+  '@better-scroll/core@2.5.1':
+    resolution: {integrity: sha512-koKOuYA55dQ04FJRIVUpMGDr1hbCfWmfX0MGp1hKagkQSWSRpwblqACiwtggVauoj9aaJRJZ9hDsTM4weaavlg==}
+
+  '@better-scroll/mouse-wheel@2.5.1':
+    resolution: {integrity: sha512-DGnrirRMY6zMM7xwgx09D/cA9A//3J1/uDkq8iBVEyE5p0sEr/keQpjEfFHGkBRa505BnbBwdbN6f5lugEDSPw==}
+
+  '@better-scroll/observe-dom@2.5.1':
+    resolution: {integrity: sha512-TCMGFLRfpXBPIwtUV/efliUmfmrhSNI7NXdSyjdWjsLOS7dh3eFkmcom5ERVWMaXVELSmujGXLqobT+dT0C/jg==}
+
+  '@better-scroll/pull-down@2.5.1':
+    resolution: {integrity: sha512-Y6XcGu2NlevPg3k9VBRRFvpmfoTA+rO96JGdog2qKHclIPNXnsVwsIHtZfAm9weE/f9UuC4BnB+VUFRlucfupg==}
+
+  '@better-scroll/pull-up@2.5.1':
+    resolution: {integrity: sha512-1hu3xSMxdB8T391KffpNZ7g93lMwZEHjfb1F1Y4KvIkciDt8nXqkGpqrZF+YwR+EJTgYcWqUO8kgmI6XXu7Pkg==}
+
+  '@better-scroll/scroll-bar@2.5.1':
+    resolution: {integrity: sha512-i6r60pWG/ztkFK2j5Gj54I0LJb2jGh5TWJNQBoW0gUkp28B+0JvBFTwZn9tF7beZCBorKR7Hvvu4O9A1TJy94Q==}
+
+  '@better-scroll/shared-utils@2.5.1':
+    resolution: {integrity: sha512-AplkfSjXVYP9LZiD6JsKgmgQJ/mG4uuLmBuwLz8W5OsYc7AYTfN8kw6GqZ5OwCGoXkVhBGyd8NeC4xwYItp0aw==}
+
+  '@better-scroll/slide@2.5.1':
+    resolution: {integrity: sha512-aDOrfsmjAcz6DXN7mDX3tPieAn195R43Yn9e3waI19TIEok/mQlI1a/kb5quqWOoxkiaZQ8xe3vx5ZTj9C+F6Q==}
+
+  '@better-scroll/wheel@2.5.1':
+    resolution: {integrity: sha512-fYLcEvkh88Z/2L+P5/+SGMunuc+HzAjGOiORIa/x21qb/knO2RFH4A/V1Rt3OIW4QluWzuFnU6jJRPlsQVZ4fg==}
+
+  '@better-scroll/zoom@2.5.1':
+    resolution: {integrity: sha512-aGvFY5ooeZWS4RcxQLD+pGLpQHQxpPy0sMZV3yadcd2QK53PK9gS4Dp+BYfRv8lZ4/P2LoNEhr6Wq1DN6+uPlA==}
+
   '@discoveryjs/json-ext@0.5.7':
     resolution: {integrity: sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==}
     engines: {node: '>=10.0.0'}
@@ -1174,6 +1213,9 @@ packages:
 
   batch@0.6.1:
     resolution: {integrity: sha512-x+VAiMRL6UPkx+kudNvxTl6hB2XNNCG2r+7wixVfIYwu/2HKRXimwQyaumLjMveWvT2Hkd/cAJw+QBMfJ/EKVw==}
+
+  better-scroll@2.0.0:
+    resolution: {integrity: sha512-/AnS2wqpcyzHohtIqwAcIKjdKisRLnRbbWCk1owf9RadtCSVt8OufnvbcyQxOzmON+pOA5Iu9Duqt3pURhkM4g==}
 
   big.js@5.2.2:
     resolution: {integrity: sha512-vyL2OymJxmarO8gxMr0mhChsO9QGwhynfuu4+MHTAW6czfq9humCB7rKpUjDd9YUiDPU4mzpyupFSvOClAwbmQ==}
@@ -1683,6 +1725,10 @@ packages:
 
   deepmerge@1.5.2:
     resolution: {integrity: sha512-95k0GDqvBjZavkuvzx/YqVLv/6YYa17fz6ILMSf7neqQITCPbnfEnQvEgMPNjH4kgobe7+WIL0yJEHku+H3qtQ==}
+    engines: {node: '>=0.10.0'}
+
+  deepmerge@4.3.1:
+    resolution: {integrity: sha512-3sUqbMEc77XqpdNO7FRyRog+eW3ph+GYCbj+rK+uYyRMuwsVy0rMiVtPn+QJlKFvWP/1PYpapqYn0Me2knFn+A==}
     engines: {node: '>=0.10.0'}
 
   default-gateway@6.0.3:
@@ -3152,6 +3198,10 @@ packages:
   shell-quote@1.8.1:
     resolution: {integrity: sha512-6j1W9l1iAs/4xYBI1SYOVZyFcCis9b4KCLQ8fgAGG07QvzaRLVVRQvAy85yNmmZSjYjg4MWh4gNvlPujU/5LpA==}
 
+  shvl@2.0.3:
+    resolution: {integrity: sha512-V7C6S9Hlol6SzOJPnQ7qzOVEWUQImt3BNmmzh40wObhla3XOYMe4gGiYzLrJd5TFa+cI2f9LKIRJTTKZSTbWgw==}
+    deprecated: older versions vulnerable to prototype pollution
+
   side-channel@1.0.6:
     resolution: {integrity: sha512-fDW/EZ6Q9RiO8eFG8Hj+7u/oW+XrPTIChwCOM2+th2A6OblDtYYIpve9m+KvI9Z4C9qSEXlaGR6bTEYHReuglA==}
     engines: {node: '>= 0.4'}
@@ -3470,6 +3520,12 @@ packages:
   vue@2.7.16:
     resolution: {integrity: sha512-4gCtFXaAA3zYZdTp5s4Hl2sozuySsgz4jy1EnpBHNfpMa9dK1ZCG7viqBPCwXtmgc8nHqUsAu3G4gtmXkkY3Sw==}
     deprecated: Vue 2 has reached EOL and is no longer actively maintained. See https://v2.vuejs.org/eol/ for more details.
+
+  vuex-persistedstate@4.1.0:
+    resolution: {integrity: sha512-3SkEj4NqwM69ikJdFVw6gObeB0NHyspRYMYkR/EbhR0hbvAKyR5gksVhtAfY1UYuWUOCCA0QNGwv9pOwdj+XUQ==}
+    deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+    peerDependencies:
+      vuex: ^3.0 || ^4.0.0-rc
 
   vuex@3.6.2:
     resolution: {integrity: sha512-ETW44IqCgBpVomy520DT5jf8n0zoCac+sxWnn+hMe/CzaSejb/eVw2YToiXYX+Ex/AuHHia28vWTq4goAexFbw==}
@@ -4442,6 +4498,44 @@ snapshots:
       '@babel/helper-validator-identifier': 7.24.7
       to-fast-properties: 2.0.0
 
+  '@better-scroll/core@2.5.1':
+    dependencies:
+      '@better-scroll/shared-utils': 2.5.1
+
+  '@better-scroll/mouse-wheel@2.5.1':
+    dependencies:
+      '@better-scroll/core': 2.5.1
+
+  '@better-scroll/observe-dom@2.5.1':
+    dependencies:
+      '@better-scroll/core': 2.5.1
+
+  '@better-scroll/pull-down@2.5.1':
+    dependencies:
+      '@better-scroll/core': 2.5.1
+
+  '@better-scroll/pull-up@2.5.1':
+    dependencies:
+      '@better-scroll/core': 2.5.1
+
+  '@better-scroll/scroll-bar@2.5.1':
+    dependencies:
+      '@better-scroll/core': 2.5.1
+
+  '@better-scroll/shared-utils@2.5.1': {}
+
+  '@better-scroll/slide@2.5.1':
+    dependencies:
+      '@better-scroll/core': 2.5.1
+
+  '@better-scroll/wheel@2.5.1':
+    dependencies:
+      '@better-scroll/core': 2.5.1
+
+  '@better-scroll/zoom@2.5.1':
+    dependencies:
+      '@better-scroll/core': 2.5.1
+
   '@discoveryjs/json-ext@0.5.7': {}
 
   '@hapi/hoek@9.3.0': {}
@@ -5249,6 +5343,18 @@ snapshots:
 
   batch@0.6.1: {}
 
+  better-scroll@2.0.0:
+    dependencies:
+      '@better-scroll/core': 2.5.1
+      '@better-scroll/mouse-wheel': 2.5.1
+      '@better-scroll/observe-dom': 2.5.1
+      '@better-scroll/pull-down': 2.5.1
+      '@better-scroll/pull-up': 2.5.1
+      '@better-scroll/scroll-bar': 2.5.1
+      '@better-scroll/slide': 2.5.1
+      '@better-scroll/wheel': 2.5.1
+      '@better-scroll/zoom': 2.5.1
+
   big.js@5.2.2: {}
 
   binary-extensions@2.3.0: {}
@@ -5632,6 +5738,8 @@ snapshots:
       ms: 2.1.2
 
   deepmerge@1.5.2: {}
+
+  deepmerge@4.3.1: {}
 
   default-gateway@6.0.3:
     dependencies:
@@ -7049,6 +7157,8 @@ snapshots:
 
   shell-quote@1.8.1: {}
 
+  shvl@2.0.3: {}
+
   side-channel@1.0.6:
     dependencies:
       call-bind: 1.0.7
@@ -7403,6 +7513,12 @@ snapshots:
     dependencies:
       '@vue/compiler-sfc': 2.7.16
       csstype: 3.1.3
+
+  vuex-persistedstate@4.1.0(vuex@3.6.2(vue@2.7.16)):
+    dependencies:
+      deepmerge: 4.3.1
+      shvl: 2.0.3
+      vuex: 3.6.2(vue@2.7.16)
 
   vuex@3.6.2(vue@2.7.16):
     dependencies:

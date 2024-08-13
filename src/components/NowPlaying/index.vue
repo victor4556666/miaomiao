@@ -1,117 +1,157 @@
 <template>
-    <div>
-        <div class="box">
-            <ul v-for="item in filmslist" :key="item.filmId">
-                <li><img :src="item.poster" alt=""></li>
-                <li style="width:100%;" class="movie">
-                    <div>{{ item.name }} <span>{{ item.item.name }}</span>
-                    </div>
-                    <div :class="item.grade ? '' : 'hidden'">观众评分 <span style="color:orange;">{{ item.grade
-                            }}</span></div>
-                    <div class="actor">主演：{{ item.actors | actorsList }}</div>
-                    <div>{{ item.nation }} | {{ item.runtime }}分钟</div>
-                </li>
-                <li>
-                    <div>购票</div>
-                </li>
-            </ul>
+  <div class="box">
+    <van-list
+      v-model="loading"
+      :finished="finished"
+      finished-text="没有更多了"
+      @load="onLoad"
+      :immediate-check="false"
+    >
+      <van-cell v-for="item in filmslist" :key="item.filmId">
+        <div><img :src="item.poster" alt="" /></div>
+        <div style="width: 100%" class="movie">
+          <div>
+            {{ item.name }} <span>{{ item.item.name }}</span>
+          </div>
+          <div :class="item.grade ? '' : 'hidden'">
+            观众评分 <span style="color: orange">{{ item.grade }}</span>
+          </div>
+          <div class="actor">主演：{{ item.actors | actorsList }}</div>
+          <div>{{ item.nation }} | {{ item.runtime }}分钟</div>
         </div>
-    </div>
+        <div>
+          <div class="shop">购票</div>
+        </div>
+      </van-cell>
+    </van-list>
+  </div>
 </template>
 
 <script>
-import http from '@/util/http'
+import http from "@/util/http";
+// import BScroll from 'better-scroll'
 
 export default {
-    name: "NowPlaying",
-    data() {
-        return {
-            filmslist: []
-        }
-    },
-    mounted() {
+  name: "NowPlaying",
+  data() {
+    return {
+      filmslist: [],
+      loading: false,
+      finished: false,
+      count: 1,
+      total: 0,
+    };
+  },
+  mounted() {
+    http({
+      url: `/gateway?cityId=110100&pageNum=1&pageSize=10&type=1&k=${this.$store.state.City.id}`,
+      headers: {
+        "X-Host": "mall.film-ticket.film.list",
+      },
+    }).then((res) => {
+      this.total = res.data.data.total;
+      this.filmslist = res.data.data.films;
+      this.loading = false;
+    });
+  },
+  methods: {
+    onLoad() {
+      // 异步更新数据
+      if (this.total === this.filmslist.length && this.total > 0) {
+        this.loading = true;
+        this.finished = true;
+        return;
+      }
+
+      if (!this.finished) {
+        this.count++;
+        console.log(1111);
         http({
-            url: '/gateway?cityId=110100&pageNum=1&pageSize=10&type=1&k=8214704',
-            headers: {
-                'X-Host': 'mall.film-ticket.film.list'
-            }
-        }).then(res => {
-            console.log(res.data.data.films)
-            this.filmslist = res.data.data.films
-        })
-    }
-}
+          url: `/gateway?cityId=110100&pageNum=${this.count}&pageSize=10&type=1&k=${this.$store.state.City.id}`,
+          headers: {
+            "X-Host": "mall.film-ticket.film.list",
+          },
+        }).then((res) => {
+          if (res.data.data.films.length === 0) {
+            this.finished = true;
+            return;
+          }
+          this.filmslist = [...this.filmslist, ...res.data.data.films];
+          this.loading = false;
+        });
+      }
+    },
+  },
+};
 </script>
 
 <style scoped lang="scss">
 .box {
-    padding-bottom: 2.7rem;
+  padding-bottom: 2.7rem;
+  box-sizing: border-box;
+
+  .van-cell {
+    padding: 0.3rem 0.3rem;
+  }
+
+  .van-cell__value {
+    display: grid;
+    grid-template-columns: 24% 58% 18%;
     box-sizing: border-box;
+    // padding: .625rem;
+    font-size: 0.8rem;
+    place-content: center;
+    place-items: center;
+    // padding-left: .1rem;
 
-    ul {
-        display: grid;
-        grid-template-columns: 24% 62% 15%;
-        box-sizing: border-box;
-        padding: .625rem;
-        font-size: 0.8rem;
-        place-content: center;
-        place-items: center;
-        padding-left: .1rem;
-
-
-        img {
-            width: 4.125rem;
-
-        }
-
-        li {
-            color: gray;
-
-        }
-
-        .movie div {
-            margin-bottom: 0.25rem;
-        }
-
-        .movie div:first-child {
-            font-size: 1rem;
-
-            color: black;
-
-            span {
-                display: inline-block;
-                width: 1.1rem;
-                height: 0.8rem;
-                background: #d2d6dc;
-                color: white;
-                font-size: .75rem;
-            }
-        }
-
-        .movie .hidden {
-            visibility: hidden;
-        }
-
-        li:last-child {
-            div {
-                width: 3.125rem;
-                height: 1.5625rem;
-                border: 1px solid orange;
-                border-radius: 6px;
-                text-align: center;
-                line-height: 1.5625rem;
-                color: orange;
-                font-size: 0.8rem;
-            }
-        }
-
-        .actor {
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-
+    img {
+      width: 4.125rem;
     }
+
+    div {
+      color: gray;
+    }
+
+    .movie div {
+      margin-bottom: 0.25rem;
+    }
+
+    .movie div:first-child {
+      font-size: 1rem;
+
+      color: black;
+
+      span {
+        display: inline-block;
+        width: 1.1rem;
+        height: 1rem;
+        line-height: 1rem;
+        background: #d2d6dc;
+        color: white;
+        font-size: 0.75rem;
+      }
+    }
+
+    .movie .hidden {
+      visibility: hidden;
+    }
+
+    .shop {
+      width: 3rem;
+      height: 1.5625rem;
+      border: 1px solid orange;
+      border-radius: 6px;
+      text-align: center;
+      line-height: 1.5625rem;
+      color: orange;
+      font-size: 0.8rem;
+    }
+
+    .actor {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
 }
 </style>

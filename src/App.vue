@@ -1,17 +1,13 @@
 <template>
-  <keep-alive>
-    <router-view />
-  </keep-alive>
+  <keep-alive><router-view /></keep-alive>
 </template>
 <script>
-import Vue from 'vue';
-import Vant from 'vant';
-import 'vant/lib/index.css';
+import Vue from "vue";
+import Vant from "vant";
+import "vant/lib/index.css";
 
 Vue.use(Vant);
-export default {
-
-}
+export default {};
 </script>
 <style>
 * {
