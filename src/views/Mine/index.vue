@@ -15,7 +15,7 @@
 <script>
 import Header from "@/components/Header";
 import Tabbar from "@/components/Tabbar";
-import Scroller from "@better-scroll/core";
+
 export default {
   name: "Mine",
   components: {

@@ -8,8 +8,14 @@
       :immediate-check="false"
     >
       <van-cell v-for="item in filmslist" :key="item.filmId">
-        <div><img :src="item.poster" alt="" /></div>
-        <div style="width: 100%" class="movie">
+        <div @click="handleClick(item.filmId)">
+          <img :src="item.poster" alt="" />
+        </div>
+        <div
+          style="width: 100%"
+          class="movie"
+          @click="handleClick(item.filmId)"
+        >
           <div>
             {{ item.name }} <span>{{ item.item.name }}</span>
           </div>
@@ -43,6 +49,7 @@ export default {
     };
   },
   mounted() {
+    this.$store.commit("show");
     http({
       url: `/gateway?cityId=110100&pageNum=1&pageSize=10&type=1&k=${this.$store.state.City.id}`,
       headers: {
@@ -55,6 +62,9 @@ export default {
     });
   },
   methods: {
+    handleClick(id) {
+      this.$router.push(`/detail/${id}`);
+    },
     onLoad() {
       // 异步更新数据
       if (this.total === this.filmslist.length && this.total > 0) {
@@ -65,7 +75,6 @@ export default {
 
       if (!this.finished) {
         this.count++;
-        console.log(1111);
         http({
           url: `/gateway?cityId=110100&pageNum=${this.count}&pageSize=10&type=1&k=${this.$store.state.City.id}`,
           headers: {
