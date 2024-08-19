@@ -120,8 +120,10 @@ Vue.directive("scroll", {
         document.body.scrollTop > bangding.value
       ) {
         el.style.display = "block";
+        document.querySelector(".circle").style.display = "none";
       } else {
         el.style.display = "none";
+        document.querySelector(".circle").style.display = "block";
       }
     };
   },
